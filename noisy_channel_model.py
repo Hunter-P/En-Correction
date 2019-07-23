@@ -8,11 +8,11 @@ from sklearn.externals import joblib
 import random
 
 
-def build_words():
-    text = open('big.txt').read()
+def build_words(train_data):
+    text = open(train_data).read() # 训练数据，保存词典
     # 统计词频
     WORDS = Counter(re.findall(r'\w+', text.lower()))
-    joblib.dump(WORDS, 'data/WORDS')
+    joblib.dump(WORDS, 'WORDS')
     print("WORDS:", WORDS)
 
 
@@ -43,8 +43,8 @@ def add_weight():
     """
     在词典里添加单词
     """
-    words_dict = joblib.load('data/WORDS')
-    text = open('lc_word.txt').read()
+    words_dict = joblib.load('WORDS')
+    text = open('new_word.txt').read()  # 要添加的单词放在new_word.txt
     text = text.strip().split()
     for w in text:
         try:
@@ -70,7 +70,7 @@ def create_word_dict():
     for w in text:
         words_dict[w.lower()] = 10
     words_dict = dict(sorted(words_dict.items(), key=lambda x: x[1], reverse=True))
-    joblib.dump(words_dict, 'data/new_words_dict')
+#     joblib.dump(words_dict, 'data/new_words_dict')
     return words_dict
 
 
