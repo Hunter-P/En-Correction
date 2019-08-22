@@ -6,4 +6,5 @@
 * 提供两种词频库，详见txt文件。
 * 具备修改词频，添加自定义词频库的功能，命名为`new_word.txt`即可，格式与原词频库相同。
 
+`Any problem happened when using the codes, please contact me.`
 
